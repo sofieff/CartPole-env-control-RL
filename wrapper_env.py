@@ -8,7 +8,8 @@ class LearnedCartPoleEnv(CartPoleEnv):
     super().__init__(render_mode=None)
 
   def neural_network(self, state, action):
-    return np.array([0.0, 0.0, 0.0, 0.0])
+    # insert a neural network here  
+    return np.array([np.random.uniform(-1, 1), 0.0, np.random.uniform(-0.2, 0.3), 0.0])
 
 
   def reset(self,*, seed: int | None = None, options: dict | None = None,):
