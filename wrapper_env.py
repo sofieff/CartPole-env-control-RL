@@ -1,6 +1,7 @@
 import gymnasium as gym
 import numpy as np
 from gymnasium.envs.classic_control.cartpole import CartPoleEnv
+from gymnasium.wrappers import TimeLimit
 class LearnedCartPoleEnv(CartPoleEnv):
 
   def __init__(self):
@@ -30,8 +31,10 @@ class LearnedCartPoleEnv(CartPoleEnv):
 
     return next_state, reward, terminated, False, {}
 
+# Wrap our env in a step limit wrapper
 
-env = LearnedCartPoleEnv()
+env = TimeLimit(LearnedCartPoleEnv(), max_episode_steps=200)
 print(env)
 print(env.reset())
+print(env.step(1))
 print(env.step(1))
